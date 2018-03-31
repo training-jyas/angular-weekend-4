@@ -1,0 +1,22 @@
+<h3>
+  {{ title }}
+</h3>
+<h4>string interpolation</h4>
+<div>{{ obj }}</div>
+<h4>property binding</h4>
+<span>Name: </span><span [innerHtml]="obj.name"></span>
+<span>Age: </span><span>{{ obj.age }}</span>
+
+<form>
+  <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" name="name"
+    [(ngModel)]="obj.name">
+  </div>
+  <div class="form-group">
+    <button
+    class="btn btn-default"
+    (click)="submit()"
+    [disabled]="obj.name === ''">Submit</button>
+  </div>
+</form>

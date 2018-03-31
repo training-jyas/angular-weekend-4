@@ -2,19 +2,19 @@
 Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 
 # Basics
-- [] Introduction to Angular
-- [] How a angular app loads
-- [] What is a component and how to create it
-- [] Understanding the role of App Module and component declaration
+- [x] Introduction to Angular
+- [x] How a angular app loads
+- [x] What is a component and how to create it
+- [x] Understanding the role of App Module and component declaration
 - [] Creating components with CLI and nesting them
-- [] Component templates and styles
-- [] Component selector
-- [] What is databinding
-- [] String interpolation
-- [] Property binding
-- [] Event binding
-- [] Passing and using data with event binding
-- [] Two way data binding and why FormsModule ?
+- [x] Component templates and styles
+- [x] Component selector
+- [x] What is databinding
+- [x] String interpolation
+- [x] Property binding
+- [x] Event binding
+- [x] Passing and using data with event binding
+- [x] Two way data binding and why FormsModule ?
 - [] Understanding directives
 - [] Using ngIf with else condition
 - [] Styling elements with ngStyle
