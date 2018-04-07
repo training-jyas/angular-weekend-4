@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Cart</h2>
+  <div class="row" *ngFor="let product of products">
+    <div class="col-sm-3">
+      <i class="fa-2x" [ngClass]="product.image"></i>
+    </div>
+    <div class="col-sm-6">
+      <div>{{ product.name }}</div>
+      <div>{{ product.price }}</div>
+    </div>
+  </div>
+</div>
