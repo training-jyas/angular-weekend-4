@@ -1,0 +1,17 @@
+<div class="container" *ngIf="product">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="product-details">
+        <i class="image fa-4x" [ngClass]="product.image"></i>
+        <h3>Name</h3>
+        <div class="name">{{ product.name }}</div>
+        <h3>Price</h3>
+        <div class="price">Rs {{ product.price }}</div>
+        <h3>Description</h3>
+        <div class="description"> {{ product.description }}</div>
+        <label *ngIf="!product.isAvailable">Sold Out</label>
+        <label *ngIf="product.isAdded">Added to Cart</label>
+      </div>
+    </div>
+  </div>
+</div>
