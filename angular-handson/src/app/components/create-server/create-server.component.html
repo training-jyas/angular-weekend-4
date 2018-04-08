@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="form">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" class="form-control" [(ngModel)]="name" placeholder="Enter server name">
+        </div>
+        <div class="form-group">
+          <label for="name">Type</label>
+          <select name="type" class="form-control" [(ngModel)]="type">
+            <option value="">Select Type</option>
+            <option value="local">local</option>
+            <option value="remote">remote</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="name">Status</label>
+          <br>
+          <label class="radio-inline">
+            <input type="radio" name="status" value="online" [(ngModel)]="status"> Online
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="status" value="offline" [(ngModel)]="status"> Offline
+          </label>
+        </div>
+        <button class="btn btn-primary" 
+        (click)="create()">Create</button>
+        <button class="btn btn-default" (click)="reset()">Reset</button>
+      </div>
+    </div>
+  </div>
+</div>
