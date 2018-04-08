@@ -1,0 +1,11 @@
+<div class="list-group-item">
+  <div class="row">
+    <div class="col-xs-3">{{ server.name }}</div>
+    <div class="col-xs-3">{{ server.type }}</div>
+    <div class="col-xs-3">{{ server.status }}</div>
+    <div class="col-xs-3">
+      <i class="glyphicon glyphicon-trash" (click)="delete(server, i)"></i>
+    </div>
+  </div>
+
+</div>
