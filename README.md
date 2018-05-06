@@ -33,15 +33,14 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 - [x] Using local references in templates
 - [x] Get access to Template and DOM using @ViewChild
 - [] Project content into components using `ng-content`
-- [] Lifecycle and its details
+- [x] Lifecycle and its details
 - [] Access to ng-content using @ContentChild
 
 # Project - Components
-- [] Introduction
-- [] Add navigation, event binding and ngIf
-- [] Pass recipe data with property binding
-- [] Pass data with event binding
-- [] Allow user to add ingredients to shopping list
+- [x] Introduction
+- [x] Add navigation, event binding and ngIf
+- [x] Pass product data with property binding
+- [x] Pass data with event binding
 
 # Directives
 - [] Introduction - diff b/w structure and non structure

@@ -1,4 +1,9 @@
-<app-header></app-header>
-<app-dashboard></app-dashboard>
-<hr>
-<app-cart></app-cart>
+<app-header (menuClicked)="showPage($event)"></app-header>
+<app-dashboard 
+    *ngIf="page === 'dashboard'"
+    (addProdToCart)="addToCart($event)">
+</app-dashboard>
+<app-cart 
+    [product]="product"
+    [page]="page">
+</app-cart>

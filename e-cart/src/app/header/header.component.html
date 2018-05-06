@@ -8,10 +8,10 @@
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li>
+        <li [ngClass]="{'active': page === 'dashboard'}">
           <a (click)="select('dashboard')">Dashboard</a>
         </li>
-        <li>
+        <li [ngClass]="{'active': page === 'cart'}">
           <a (click)="select('cart')">Cart</a>
         </li>
       </ul>

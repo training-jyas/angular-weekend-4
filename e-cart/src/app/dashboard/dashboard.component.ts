@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Product } from '../shared/model/product.model';
 
 @Component({
@@ -7,6 +7,8 @@ import { Product } from '../shared/model/product.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
+  @Output() addProdToCart = new EventEmitter<Product>();
+  isDetailVisible = false;
   products = [
     new Product('mobile', 15000, 'a nice mobile', 1, 'glyphicon glyphicon-th', true, false),
     new Product('laptop', 45000, 'a nice laptop', 2, 'glyphicon glyphicon-asterisk', true, false),
@@ -24,6 +26,15 @@ export class DashboardComponent implements OnInit {
 
   showDetails(product: Product) {
     this.product = product;
+    this.isDetailVisible = true;
+  }
+
+  addToCart(product: Product) {
+    this.addProdToCart.emit(product);
+  }
+
+  goBack() {
+    this.isDetailVisible = false;
   }
 
 }

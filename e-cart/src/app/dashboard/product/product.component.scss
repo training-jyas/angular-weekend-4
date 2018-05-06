@@ -1,0 +1,27 @@
+.product-card {
+  background-color: transparent;
+  border: 1px solid lightgray;
+  padding: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  .image {
+    font-size: 4em;
+    color: lightgray;
+    margin-bottom: 10px;
+  }
+  .name {
+    font-weight: bold;
+    color: gray;
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+  .price {
+    font-weight: bold;
+  }
+  .actions {
+    margin-top: 5px;
+    .glyphicon {
+      cursor: pointer;
+    }
+  }
+}
