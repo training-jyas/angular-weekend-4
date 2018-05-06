@@ -1,20 +1,46 @@
-import { Component, OnInit } from '@angular/core';
-import { Product } from '../shared/model/product.model';
+import {
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges
+} from '@angular/core';
+import {
+  Product
+} from '../shared/model/product.model';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
-  products = [
-    new Product('mobile', 15000, 'a nice mobile', 1, 'glyphicon glyphicon-th', true, false),
-    new Product('laptop', 45000, 'a nice laptop', 2, 'glyphicon glyphicon-asterisk', true, false)
-  ];
+export class CartComponent implements OnInit, OnChanges {
+  @Input() product: Product;
+  @Input() page: string;
 
-  constructor() { }
+  products: Product[] = [];
 
-  ngOnInit() {
+  constructor() {}
+
+  ngOnChanges(changes: SimpleChanges) {
+    console.log('changes', changes);
+    if (changes['product'] && changes['product']['currentValue']) {
+      const productToAdd = changes['product']['currentValue'];
+      if (!this.isProductAdded(productToAdd)) {
+        this.products.push(productToAdd);
+      }
+    }
   }
 
+  ngOnInit() {}
+
+  private isProductAdded(product: Product): boolean {
+    let isAdded = false;
+    this.products.forEach((prod) => {
+      if (prod.id === product.id) {
+        isAdded = true;
+      }
+    });
+    return isAdded;
+  }
 }
