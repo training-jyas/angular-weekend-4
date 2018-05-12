@@ -9,6 +9,7 @@ import { Product } from './shared/model/product.model';
 export class AppComponent {
   page = 'dashboard';
   product: Product;
+  prodsInTheCart = 0;
 
   showPage(page: string) {
     this.page = page;
@@ -17,5 +18,10 @@ export class AppComponent {
   addToCart(product: Product) {
     this.product = product;
     console.log('product in app', this.product);
+  }
+
+  updateProdCount(productCount: number) {
+    debugger;
+    this.prodsInTheCart = productCount;
   }
 }

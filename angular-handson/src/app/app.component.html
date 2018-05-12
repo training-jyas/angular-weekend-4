@@ -1,3 +1,4 @@
-<app-header></app-header>
-<!-- <app-bindings></app-bindings> -->
-<app-components></app-components>
+<app-header (menuClicked)="selectPage($event)"></app-header>
+<app-bindings *ngIf="page === 'bindings'"></app-bindings>
+<app-components *ngIf="page === 'components'"></app-components>
+<app-directives *ngIf="page === 'directives'"></app-directives>
