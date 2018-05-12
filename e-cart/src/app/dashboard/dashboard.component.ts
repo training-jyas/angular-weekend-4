@@ -1,4 +1,4 @@
-import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
 import { Product } from '../shared/model/product.model';
 
 @Component({
@@ -8,6 +8,7 @@ import { Product } from '../shared/model/product.model';
 })
 export class DashboardComponent implements OnInit {
   @Output() addProdToCart = new EventEmitter<Product>();
+  @Input() productCount: number;
   isDetailVisible = false;
   products = [
     new Product('mobile', 15000, 'a nice mobile', 1, 'glyphicon glyphicon-th', true, false),

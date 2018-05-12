@@ -1,9 +1,11 @@
 <app-header (menuClicked)="showPage($event)"></app-header>
 <app-dashboard 
     *ngIf="page === 'dashboard'"
-    (addProdToCart)="addToCart($event)">
+    (addProdToCart)="addToCart($event)"
+    [productCount]="prodsInTheCart">
 </app-dashboard>
 <app-cart 
     [product]="product"
-    [page]="page">
+    [page]="page"
+    (productAdded)="updateProdCount($event)">
 </app-cart>

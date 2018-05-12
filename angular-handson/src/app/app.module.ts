@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { BindingsModule } from './bindings/bindings.module';
 import { HeaderModule } from './header/header.module';
 import { ComponentsModule } from './components/components.module';
+import { DirectivesComponent } from './directives/directives.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DirectivesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,14 @@
+<h3>*ngFor</h3>
+<div>Student 1: {{students[0].name}}, {{students[0].age}}</div>
+<div>Student 2: {{students[1].name}}, {{students[1].age}}</div>
+<div>Student 3: {{students[2].name}}, {{students[2].age}}</div>
+<div>Student 4: {{students[3].name}}, {{students[3].age}}</div>
+<hr>
+<b>We can improvise the above in the *ngFor way</b>
+
+<div 
+    *ngFor="let student of students;let i = index"
+    [ngStyle]="{'background-color': student.age < 22 ? 'red' : 'yellow'}"
+    [ngClass]="{'less-than-22': student.age < 22, 'equal-or-greater-than-22': student.age >= 22}">
+    Student {{ i + 1 }}: {{student.name}}, {{student['age']}}
+</div>

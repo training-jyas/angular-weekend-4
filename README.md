@@ -43,7 +43,7 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 - [x] Pass data with event binding
 
 # Directives
-- [] Introduction - diff b/w structure and non structure
+- [x] Introduction - diff b/w structure and non structure
 - [] ngFor and ngIf recap
 - [] ngClass and ngStyle recap
 - [] Create a basic attribute directive

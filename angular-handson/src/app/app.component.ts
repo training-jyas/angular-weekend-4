@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'RTST ';
+  page = 'directives';
+
+  selectPage(page: string) {
+    this.page = page;
+  }
 }

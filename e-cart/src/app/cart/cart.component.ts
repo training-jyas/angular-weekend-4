@@ -3,7 +3,9 @@ import {
   OnInit,
   Input,
   OnChanges,
-  SimpleChanges
+  SimpleChanges,
+  EventEmitter,
+  Output
 } from '@angular/core';
 import {
   Product
@@ -17,6 +19,7 @@ import {
 export class CartComponent implements OnInit, OnChanges {
   @Input() product: Product;
   @Input() page: string;
+  @Output() productAdded = new EventEmitter<number>();
 
   products: Product[] = [];
 
@@ -28,6 +31,7 @@ export class CartComponent implements OnInit, OnChanges {
       const productToAdd = changes['product']['currentValue'];
       if (!this.isProductAdded(productToAdd)) {
         this.products.push(productToAdd);
+        this.productAdded.emit(this.products.length);
       }
     }
   }
