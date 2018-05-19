@@ -6,3 +6,17 @@
     font-weight: bold;
     color: red;
 }
+.paragraph-modified {
+    color: red; 
+    font-weight: bold;
+}
+p {
+    color: red;
+    &.highlight {
+        background-color: yellow;
+        font-style: italic;
+    }
+    &.random {
+        border: 1px solid green; 
+    }
+}

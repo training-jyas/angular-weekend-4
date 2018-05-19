@@ -8,5 +8,23 @@
       class="glyphicon glyphicon-shopping-cart"
       (click)="addToCart()"
     ></span>
+    <div class="dropdown" appDropdownDirective>
+      <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="true">
+        Options
+        <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <li>
+          <a>Edit Product</a>
+        </li>
+        <li>
+          <a>Delete Product</a>
+        </li>
+        <li>
+          <a (click)="addToCart()">Add to cart</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
