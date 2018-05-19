@@ -6,9 +6,17 @@
 <hr>
 <b>We can improvise the above in the *ngFor way</b>
 
-<div 
-    *ngFor="let student of students;let i = index"
-    [ngStyle]="{'background-color': student.age < 22 ? 'red' : 'yellow'}"
-    [ngClass]="{'less-than-22': student.age < 22, 'equal-or-greater-than-22': student.age >= 22}">
-    Student {{ i + 1 }}: {{student.name}}, {{student['age']}}
+<div *ngFor="let student of students;let i = index" [ngStyle]="{'background-color': student.age < 22 ? 'red' : 'yellow'}"
+  [ngClass]="{'less-than-22': student.age < 22, 'equal-or-greater-than-22': student.age >= 22}">
+  Student {{ i + 1 }}: {{student.name}}, {{student['age']}}
+</div>
+<hr>
+<p appBasicHighlightDirective>This is using directive</p>
+<p appBetterHighlight>This is using better hightlight directive</p>
+<h3>Switch Case</h3>
+<div [ngSwitch]="value">
+  <p *ngSwitchCase="3">value is 3</p>
+  <p *ngSwitchCase="4">value is 4</p>
+  <p *ngSwitchCase="5">value is 5</p>
+  <p *ngSwitchDefault>value is default</p>
 </div>

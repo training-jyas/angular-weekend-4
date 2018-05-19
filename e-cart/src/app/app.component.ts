@@ -21,7 +21,6 @@ export class AppComponent {
   }
 
   updateProdCount(productCount: number) {
-    debugger;
     this.prodsInTheCart = productCount;
   }
 }

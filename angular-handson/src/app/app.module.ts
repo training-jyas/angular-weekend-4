@@ -6,11 +6,15 @@ import { BindingsModule } from './bindings/bindings.module';
 import { HeaderModule } from './header/header.module';
 import { ComponentsModule } from './components/components.module';
 import { DirectivesComponent } from './directives/directives.component';
+import { BasicHighlightDirective } from './directives/basic-highlight.directive';
+import { BetterHightlightDirective } from './directives/better-highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DirectivesComponent
+    DirectivesComponent,
+    BasicHighlightDirective,
+    BetterHightlightDirective
   ],
   imports: [
     BrowserModule,

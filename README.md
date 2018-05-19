@@ -32,9 +32,7 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 - [x] Understanding view encapsulation
 - [x] Using local references in templates
 - [x] Get access to Template and DOM using @ViewChild
-- [] Project content into components using `ng-content`
 - [x] Lifecycle and its details
-- [] Access to ng-content using @ContentChild
 
 # Project - Components
 - [x] Introduction
@@ -44,26 +42,25 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 
 # Directives
 - [x] Introduction - diff b/w structure and non structure
-- [] ngFor and ngIf recap
-- [] ngClass and ngStyle recap
-- [] Create a basic attribute directive
-- [] Using renderer to build better attribute directive
-- [] Using HostListener to listen to host events
-- [] Using HostBinding to bind to host properties
-- [] Binding to directive properties
-- [] ngSwitch
+- [x] ngFor and ngIf recap
+- [x] ngClass and ngStyle recap
+- [x] Create a basic attribute directive
+- [x] Using renderer to build better attribute directive
+- [x] Using HostListener to listen to host events
+- [x] Using HostBinding to bind to host properties
+- [x] Binding to directive properties
+- [x] ngSwitch
 
 # Project - Directives
-- [] Make the dropdown work using a directive
+- [x] Make the dropdown work using a directive
 
 # Project - Services
 - [] Add service files
-- [] Manage recipes in a recipe service
-- [] Cross component communication to select recipe
-- [] Add shopping list service
-- [] Reactive service informing ingredient changes
-- [] Add ingredients to recipe
-- [] Pass ingredients from recipe
+- [] Manage products in a product service
+- [] Cross component communication to select a product
+- [] Add cart service
+- [] Add product to cart
+- [] Modify products in the cart
 
 # Routing
 - [] Why routes ?
@@ -81,10 +78,10 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 - [] Introduction to Reactive forms
 
 # Project - Forms
-- [] Adding the shopping list form
+- [] Adding a sample form
 - [] Adding validation to the form
-- [] Adding the edit recipe form
-- [] Adding the new recipe form
+- [] Adding the edit product form
+- [] Adding the new product form
 - [] Making all the forms functional
 
 # Pipes

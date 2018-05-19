@@ -6,6 +6,7 @@ import { Component } from "@angular/core";
     styleUrls: ['./directives.component.scss']
 })
 export class DirectivesComponent {
+    public value = '3';
     public students: any[] = [{
         name: 'Tausif',
         age: 20
