@@ -1,12 +1,26 @@
 <div class="container" *ngIf="page === 'cart'">
-  <h2>Cart</h2>
-  <div class="row" *ngFor="let product of products">
+  <div class="row product-row" *ngFor="let product of products">
     <div class="col-sm-3">
-      <i class="fa-4x" [ngClass]="product.image"></i>
+      <i class="image" [ngClass]="product.image"></i>
     </div>
-    <div class="col-sm-6">
-      <div>{{ product.name }}</div>
-      <div>{{ product.price }}</div>
+    <div class="col-sm-4">
+      <div><b>{{ product.name }}</b></div>
+      <p>{{ product.description }}</p>
+    </div>
+    <div class="col-sm-2">
+      <i class="glyphicon glyphicon-trash" (click)="removeProduct(product)"></i>
+    </div>
+    <div class="col-sm-3">
+        <div>{{ product.price }}</div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-2 col-sm-offset-7 total-text">
+      <b>Total:</b>
+    </div>
+    <div class="col-sm-3">
+      {{ totalPrice }}
     </div>
   </div>
 </div>

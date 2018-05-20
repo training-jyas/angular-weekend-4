@@ -1,5 +1,6 @@
-import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../shared/model/product.model';
+import { ProductService } from '../shared/product.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,31 +8,20 @@ import { Product } from '../shared/model/product.model';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  @Output() addProdToCart = new EventEmitter<Product>();
   @Input() productCount: number;
   isDetailVisible = false;
-  products = [
-    new Product('mobile', 15000, 'a nice mobile', 1, 'glyphicon glyphicon-th', true, false),
-    new Product('laptop', 45000, 'a nice laptop', 2, 'glyphicon glyphicon-asterisk', true, false),
-    new Product('bike', 90000, 'a nice bike', 3, 'glyphicon glyphicon-tags', true, false),
-    new Product('car', 450000, 'a nice car', 4, 'glyphicon glyphicon-road', true, false),
-    new Product('speaker', 5000, 'a nice speaker', 5, 'glyphicon glyphicon-volume-up', true, false),
-    new Product('headset', 3000, 'a nice headset', 6, 'glyphicon glyphicon-headphones', true, false)
-  ];
+  products: Product[] = [];
   product: Product;
 
-  constructor() { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
-  }
-
-  showDetails(product: Product) {
-    this.product = product;
-    this.isDetailVisible = true;
-  }
-
-  addToCart(product: Product) {
-    this.addProdToCart.emit(product);
+    this.products = this.productService.getProducts();
+    this.productService.detailsClicked
+    .subscribe((product: Product) => {
+      this.product = product;
+      this.isDetailVisible = true;
+    });
   }
 
   goBack() {

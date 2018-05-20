@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { HeaderService } from '../shared/header.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +7,11 @@ import { Component, OnInit, Output, EventEmitter, OnChanges, SimpleChanges } fro
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnChanges {
-  @Output() menuClicked = new EventEmitter<string>();
   page = 'dashboard';
 
-  constructor() { }
+  constructor(private headerService: HeaderService) { 
+    console.log('header service in header component', this.headerService);
+  }
 
   ngOnChanges(changes: SimpleChanges) {
     console.log('changes in header object', changes);
@@ -20,7 +22,7 @@ export class HeaderComponent implements OnInit, OnChanges {
 
   select(page) {
     this.page = page;
-    this.menuClicked.emit(page);
+    this.headerService.select(page);
   }
 
 }

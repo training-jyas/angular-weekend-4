@@ -55,12 +55,12 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 - [x] Make the dropdown work using a directive
 
 # Project - Services
-- [] Add service files
-- [] Manage products in a product service
-- [] Cross component communication to select a product
-- [] Add cart service
-- [] Add product to cart
-- [] Modify products in the cart
+- [x] Add service files
+- [x] Manage products in a product service
+- [x] Cross component communication to select a product
+- [x] Add cart service
+- [x] Add product to cart
+- [x] Modify products in the cart
 
 # Routing
 - [] Why routes ?
