@@ -13,6 +13,7 @@ import { DropdownDirective } from './product/dropdown.directive';
     DashboardComponent, ProductDetailComponent, ProductComponent,
     DropdownDirective
   ],
+  providers: [ ],
   exports: [DashboardComponent]
 })
 export class DashboardModule { }

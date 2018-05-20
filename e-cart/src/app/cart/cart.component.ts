@@ -2,7 +2,6 @@ import {
   Component,
   OnInit,
   Input,
-  OnChanges,
   SimpleChanges,
   EventEmitter,
   Output
@@ -10,33 +9,37 @@ import {
 import {
   Product
 } from '../shared/model/product.model';
+import { CartService } from '../shared/cart.service';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit, OnChanges {
-  @Input() product: Product;
+export class CartComponent implements OnInit {
   @Input() page: string;
   @Output() productAdded = new EventEmitter<number>();
+  public totalPrice = 0;
 
   products: Product[] = [];
 
-  constructor() {}
+  constructor(private cartService: CartService) {}
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log('changes', changes);
-    if (changes['product'] && changes['product']['currentValue']) {
-      const productToAdd = changes['product']['currentValue'];
-      if (!this.isProductAdded(productToAdd)) {
-        this.products.push(productToAdd);
+  ngOnInit() {
+    this.cartService.cartModified
+    .subscribe((products: Product[]) => {
+      console.log('product to add to the cart', products);
+      if (products.length) {
+        this.products = products;
+        this.getTotalPrice();
         this.productAdded.emit(this.products.length);
       }
-    }
+    });
   }
 
-  ngOnInit() {}
+  removeProduct(product: Product) {
+    this.cartService.removeFromCart(product);
+  }
 
   private isProductAdded(product: Product): boolean {
     let isAdded = false;
@@ -46,5 +49,12 @@ export class CartComponent implements OnInit, OnChanges {
       }
     });
     return isAdded;
+  }
+
+  private getTotalPrice() {
+    this.totalPrice = 0;
+    this.products.forEach((p) => {
+      this.totalPrice += p.price;
+    });
   }
 }

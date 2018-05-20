@@ -5,8 +5,7 @@
       <button class="btn btn-default pull-right"> Items in Cart ({{ productCount }})</button>
     </div>
     <div class="col-sm-3" *ngFor="let p of products">
-      <app-product [product]="p" (addProdToCart)="addToCart($event)" (detailsClicked)="showDetails($event)">
-      </app-product>
+      <app-product [product]="p"></app-product>
     </div>
   </div>
 

@@ -1,0 +1,13 @@
+.product-row {
+  margin-bottom: 10px;
+  i {
+    cursor: pointer;
+    &.image {
+      font-size: 3em;
+    }
+  }
+}
+
+.total-text {
+  text-align: right;
+}
