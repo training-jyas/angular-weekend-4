@@ -1,17 +1,13 @@
 <div class="container">
-  <div class="row" *ngIf="!isDetailVisible">
+  <div class="row">
     <div class="col-sm-12">
       <button class="btn btn-primary">Add a Product</button>
-      <button class="btn btn-default pull-right"> Items in Cart ({{ productCount }})</button>
+      <button 
+        class="btn btn-default pull-right"
+        routerLink="/cart"> Items in Cart ({{ productCount }})</button>
     </div>
     <div class="col-sm-3" *ngFor="let p of products">
       <app-product [product]="p"></app-product>
     </div>
-  </div>
-
-  <div *ngIf="isDetailVisible">
-    <button class="btn btn-default" (click)="goBack()">Back</button>
-    <app-product-detail [prodData]="product">
-    </app-product-detail>
   </div>
 </div>

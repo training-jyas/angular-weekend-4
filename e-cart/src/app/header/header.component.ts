@@ -7,8 +7,6 @@ import { HeaderService } from '../shared/header.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit, OnChanges {
-  page = 'dashboard';
-
   constructor(private headerService: HeaderService) { 
     console.log('header service in header component', this.headerService);
   }
@@ -18,11 +16,6 @@ export class HeaderComponent implements OnInit, OnChanges {
   }
 
   ngOnInit() {
-  }
-
-  select(page) {
-    this.page = page;
-    this.headerService.select(page);
   }
 
 }

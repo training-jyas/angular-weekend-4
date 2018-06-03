@@ -8,6 +8,8 @@ import { CartModule } from './cart/cart.module';
 import { HeaderService } from './shared/header.service';
 import { ProductService } from './shared/product.service';
 import { CartService } from './shared/cart.service';
+import { AppRoutesModule } from './app-routes.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,9 +17,11 @@ import { CartService } from './shared/cart.service';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
     HeaderModule,
     DashboardModule,
-    CartModule
+    CartModule,
+    AppRoutesModule
   ],
   providers: [
     CartService,

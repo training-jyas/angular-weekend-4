@@ -1,10 +1,2 @@
 <app-header></app-header>
-<app-dashboard 
-    *ngIf="page === 'dashboard'"
-    (addProdToCart)="addToCart($event)"
-    [productCount]="prodsInTheCart">
-</app-dashboard>
-<app-cart
-    [page]="page"
-    (productAdded)="updateProdCount($event)">
-</app-cart>
+<router-outlet></router-outlet>

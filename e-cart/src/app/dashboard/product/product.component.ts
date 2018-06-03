@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../shared/model/product.model';
 import { ProductService } from '../../shared/product.service';
 import { CartService } from '../../shared/cart.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -12,6 +13,7 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
 
   constructor(
+    private router: Router,
     private productService: ProductService,
     private cartService: CartService) { }
 
@@ -23,6 +25,6 @@ export class ProductComponent implements OnInit {
   }
 
   showDetails() {
-    this.productService.showDetails(this.product);
+    this.router.navigate(['product', this.product.id]);
   }
 }

@@ -4,10 +4,12 @@ import { DashboardComponent } from './dashboard.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ProductComponent } from './product/product.component';
 import { DropdownDirective } from './product/dropdown.directive';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   declarations: [
     DashboardComponent, ProductDetailComponent, ProductComponent,

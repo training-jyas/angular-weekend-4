@@ -8,9 +8,4 @@ export class HeaderService {
     constructor() {
 
     }
-
-    select(page: string) {
-        this.pageSelected = page;
-        this.menuClicked.next(this.pageSelected);
-    }
 }
