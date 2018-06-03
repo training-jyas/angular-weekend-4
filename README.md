@@ -67,7 +67,7 @@ Shashikala, Tausif, Sushant, Vineet, Himanshu, Pooja, Shraddha
 - [] Setting up Routes.
 - [] Adding navigation to the app
 - [] Marking active routes
-- [] Fiing page reload issues
+- [] Fixing page reload issues
 - [] Adding child routes
 - [] Configure route parameters
 - [] Styling active recipe item

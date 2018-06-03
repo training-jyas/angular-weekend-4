@@ -6,8 +6,6 @@ import {
 } from 'rxjs/Subject';
 
 export class ProductService {
-  public detailsClicked = new Subject < Product > ();
-
   private products: Product[] = [];
 
   constructor() {
@@ -21,11 +19,13 @@ export class ProductService {
     ];
   }
 
-  getProducts(): Product[] {
-    return this.products.slice();
+  getProduct(id: number): Product {
+    return this.products.find((product) => {
+      return product.id === id;
+    });
   }
 
-  showDetails(product: Product) {
-    this.detailsClicked.next(product);
+  getProducts(): Product[] {
+    return this.products.slice();
   }
 }

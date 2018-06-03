@@ -3,7 +3,9 @@
   <div class="name">{{ product.name }}</div>
   <div class="price">Rs {{  product.price }}</div>
   <div class="actions">
-    <button class="btn btn-default btn-xs" (click)="showDetails()">Details</button>
+    <button
+      class="btn btn-default btn-xs"
+      (click)="showDetails()">Details</button>
     <span 
       class="glyphicon glyphicon-shopping-cart"
       (click)="addToCart()"

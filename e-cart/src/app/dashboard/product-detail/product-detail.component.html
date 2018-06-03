@@ -1,14 +1,15 @@
-<div class="container" *ngIf="product">
+<div class="container">
+  <button class="btn btn-default" routerLink="/home">Back</button>
   <h3>Product Details</h3>
   <div class="row">
     <div class="col-sm-12">
       <div class="product-details">
         <i class="image fa-4x" [ngClass]="product.image"></i>
-        <h3>Name</h3>
+        <h4>Name</h4>
         <div class="name">{{ product.name }}</div>
-        <h3>Price</h3>
+        <h4>Price</h4>
         <div class="price">Rs {{ product.price }}</div>
-        <h3>Description</h3>
+        <h4>Description</h4>
         <div class="description"> {{ product.description }}</div>
         <label *ngIf="!product.isAvailable">Sold Out</label>
         <label *ngIf="product.isAdded">Added to Cart</label>

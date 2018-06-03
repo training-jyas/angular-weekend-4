@@ -17,7 +17,6 @@ import { CartService } from '../shared/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  @Input() page: string;
   @Output() productAdded = new EventEmitter<number>();
   public totalPrice = 0;
 
@@ -26,6 +25,11 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService) {}
 
   ngOnInit() {
+    console.log('cart component is loaded');
+    this.products = this.cartService.getProducts();
+    if (this.products.length) {
+      this.getTotalPrice();
+    }
     this.cartService.cartModified
     .subscribe((products: Product[]) => {
       console.log('product to add to the cart', products);
@@ -33,6 +37,8 @@ export class CartComponent implements OnInit {
         this.products = products;
         this.getTotalPrice();
         this.productAdded.emit(this.products.length);
+      } else {
+        this.getTotalPrice();
       }
     });
   }
