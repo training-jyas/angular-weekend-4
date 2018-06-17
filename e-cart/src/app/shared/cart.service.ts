@@ -26,16 +26,16 @@ export class CartService {
   }
 
   removeFromCart(product: Product) {
-    const index = this.getItemIndex(product);
+    const index = this.getItemIndex(product, this.products);
     if (product && index !== -1) {
       this.products.splice(index, 1);
       this.cartModified.next(this.products);
     }
   }
 
-  private getItemIndex(product: Product): number {
+  getItemIndex(product: Product, products: Product[]): number {
     let index = -1;
-    this.products.forEach((p, i) => {
+    products.forEach((p, i) => {
       if (p.id === product.id) {
         index = i;
       }

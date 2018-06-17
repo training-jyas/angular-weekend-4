@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderModule } from './header/header.module';
@@ -10,6 +11,7 @@ import { ProductService } from './shared/product.service';
 import { CartService } from './shared/cart.service';
 import { AppRoutesModule } from './app-routes.module';
 import { RouterModule } from '@angular/router';
+import { DatabaseService } from './shared/database.service';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { RouterModule } from '@angular/router';
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
     HeaderModule,
     DashboardModule,
     CartModule,
@@ -26,7 +29,8 @@ import { RouterModule } from '@angular/router';
   providers: [
     CartService,
     HeaderService,
-    ProductService
+    ProductService,
+    DatabaseService
   ],
   bootstrap: [ AppComponent ]
 })

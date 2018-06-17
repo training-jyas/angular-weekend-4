@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../shared/model/product.model';
 import { ProductService } from '../shared/product.service';
 import { CartService } from '../shared/cart.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,14 +14,22 @@ export class DashboardComponent implements OnInit {
   products: Product[] = [];
 
   constructor(
+    private route: ActivatedRoute,
     private productService: ProductService,
     private cartService: CartService) { }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
+    // console.log(this.route.snapshot.data);
+    // this.productCount = this.route.snapshot.data.productCount;
+    this.productService.getProducts();
     this.cartService.cartModified
     .subscribe((products: Product[]) => {
       this.productCount = products.length;
+    });
+    this.productService.productsModified
+    .subscribe((products: Product[]) => {
+      console.log(products);
+      this.products = products;
     });
   }
 
