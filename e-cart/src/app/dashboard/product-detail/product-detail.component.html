@@ -11,6 +11,25 @@
         <div class="price">Rs {{ product.price }}</div>
         <h4>Description</h4>
         <div class="description"> {{ product.description }}</div>
+        <hr>
+        <div class="dropdown" appDropdownDirective>
+          <button class="btn btn-default btn-xs dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="true">
+            Actions
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li (click)="editProduct()">
+              <a>Edit Product</a>
+            </li>
+            <li (click)="deleteProduct()">
+              <a>Delete Product</a>
+            </li>
+            <li>
+              <a (click)="addToCart()">Add to cart</a>
+            </li>
+          </ul>
+        </div>
         <label *ngIf="!product.isAvailable">Sold Out</label>
         <label *ngIf="product.isAdded">Added to Cart</label>
       </div>

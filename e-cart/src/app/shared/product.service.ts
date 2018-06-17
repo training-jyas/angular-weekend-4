@@ -1,31 +1,60 @@
+import { Injectable } from '@angular/core';
 import {
   Product
 } from './model/product.model';
 import {
   Subject
 } from 'rxjs/Subject';
+import { CartService } from './cart.service';
+import { DatabaseService } from './database.service';
 
+@Injectable()
 export class ProductService {
+  public productsModified = new Subject < Product[] > ();
+
   private products: Product[] = [];
 
-  constructor() {
-    this.products = [
-      new Product('mobile', 15000, 'a nice mobile', 1, 'glyphicon glyphicon-th', true, false),
-      new Product('laptop', 45000, 'a nice laptop', 2, 'glyphicon glyphicon-asterisk', true, false),
-      new Product('bike', 90000, 'a nice bike', 3, 'glyphicon glyphicon-tags', true, false),
-      new Product('car', 450000, 'a nice car', 4, 'glyphicon glyphicon-road', true, false),
-      new Product('speaker', 5000, 'a nice speaker', 5, 'glyphicon glyphicon-volume-up', true, false),
-      new Product('headset', 3000, 'a nice headset', 6, 'glyphicon glyphicon-headphones', true, false)
-    ];
-  }
+  constructor(
+    private dbService: DatabaseService,
+    private cartService: CartService
+  ) { }
 
-  getProduct(id: number): Product {
+  getProduct(id: string): Product {
     return this.products.find((product) => {
       return product.id === id;
     });
   }
 
-  getProducts(): Product[] {
-    return this.products.slice();
+  getProducts(): void {
+    this.dbService.get()
+      .subscribe((products: any) => {
+        console.log('something from get', products);
+        this.products = products;
+        this.productsModified.next(this.products);
+      });
+  }
+
+  addProduct(product: Product) {
+    this.dbService.add(product)
+      .subscribe((result: any) => {
+        console.log('result after save', result);
+        this.getProducts();
+      });
+  }
+
+  updateProduct(product: Product) {
+    this.dbService.update(product)
+      .subscribe((result: any) => {
+        console.log('result after update', result);
+        this.getProducts();
+      });
+  }
+
+  deleteProduct(product: Product) {
+    this.dbService.delete(product)
+      .subscribe((result: any) => {
+        console.log('result after delete', result);
+        this.getProducts();
+      });
   }
 }

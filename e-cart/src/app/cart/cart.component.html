@@ -11,7 +11,7 @@
       <i class="glyphicon glyphicon-trash" (click)="removeProduct(product)"></i>
     </div>
     <div class="col-sm-3">
-        <div>{{ product.price }}</div>
+        <div>{{ product.price | rupees}}</div>
     </div>
   </div>
   <hr>
@@ -20,7 +20,7 @@
       <b>Total:</b>
     </div>
     <div class="col-sm-3">
-      {{ totalPrice }}
+      {{ totalPrice | rupees}}
     </div>
   </div>
 </div>

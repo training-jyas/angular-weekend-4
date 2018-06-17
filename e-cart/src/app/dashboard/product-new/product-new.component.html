@@ -1,0 +1,35 @@
+<div class="container">
+    <h3 *ngIf="!editMode">Create Product</h3>
+    <h3 *ngIf="editMode">Edit Product</h3>
+    <form [formGroup]="productForm" (onSubmit)="save()">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="name" class="control-label">Name</label>
+                    <input type="text" name="name" class="form-control" formControlName="name" required minlength="6">
+                    <span class="help-text" *ngIf="productForm.controls.name.touched && productForm.controls.name.invalid">Name is not valid</span>
+                </div>
+                <div class="form-group">
+                    <label for="price" class="control-label">Price</label>
+                    <input type="text" name="price" class="form-control" formControlName="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="description" class="control-label">Description</label>
+                    <input type="text" name="description" class="form-control" formControlName="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="imageClass" class="control-label">Image Class</label>
+                    <input type="text" name="imageClass" class="form-control" formControlName="image" required #image>
+                </div>
+                <div class="img-responsive">
+                    <i *ngIf="image.value" [ngClass]="image.value"></i>
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" (click)="save()" [disabled]="!productForm.valid" type="submit">Save</button>
+                    <button class="btn btn-default" (click)="reset()">Reset</button>
+                    <button class="btn btn-default" (click)="cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

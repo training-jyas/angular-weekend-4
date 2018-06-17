@@ -2,7 +2,7 @@ export class Product {
   name: string;
   price: number;
   description: string;
-  id: number;
+  id: string;
   image: string;
   isAvailable: boolean;
   isAdded: boolean;
@@ -11,10 +11,10 @@ export class Product {
     name: string,
     price: number,
     description: string,
-    id: number,
     image: string,
-    isAvailable: boolean,
-    isAdded: boolean) {
+    id?: string,
+    isAvailable?: boolean,
+    isAdded?: boolean) {
         this.name = name;
         this.price = price;
         this.description = description;
