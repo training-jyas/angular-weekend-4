@@ -6,25 +6,21 @@ import { ProductComponent } from '../dashboard/product/product.component';
 
 @Injectable()
 export class DatabaseService {
-    private url = 'https://ng-e-cart.firebaseio.com/products';
-    private urlSuffix = '.json';
+    private url = 'http://localhost:3000/product';
     constructor(private http: HttpClient) {
 
     }
 
     get() {
-        return this.http.get(this.url + this.urlSuffix)
+        return this.http.get(this.url)
         .map((result: any) => {
             const products: Product[] = [];
             if (Object.keys(result).length) {
                 for (const key in result) {
                     if (result.hasOwnProperty(key)) {
-                        const product = {};
-                        product['id'] = key;
-                        product['name'] = result[key]['name'];
-                        product['price'] = result[key]['price'];
-                        product['description'] = result[key]['description'];
-                        product['image'] = result[key]['image'];
+                        let product = {};
+                        product = result[key];
+                        product['id'] = result[key]['_id'];
                         products.push(<Product>product);
                     }
                 }
@@ -34,14 +30,14 @@ export class DatabaseService {
     }
 
     add(product: Product) {
-        return this.http.post(this.url + this.urlSuffix, product);
+        return this.http.post(this.url, product);
     }
 
     update(product: Product) {
-        return this.http.put(this.url + '/' + product.id + this.urlSuffix, product);
+        return this.http.patch(this.url + '/' + product.id, product);
     }
 
     delete(product: Product) {
-        return this.http.delete(this.url + '/' + product.id + this.urlSuffix);
+        return this.http.delete(this.url + '/' + product.id);
     }
 }
